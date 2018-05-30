@@ -20,7 +20,7 @@ if(!mysql_query("SELECT * FROM news")) {
 }
 
 if(!mysql_query("SELECT COUNT(*) FROM news")) {
-  $counterror = "No news was found in the database.";
+  $counterror = "<h1>No news was found in the database.</h1>";
 } else {
   $counterror = null;
   $max = 5;
@@ -49,13 +49,9 @@ if(!mysql_query("SELECT COUNT(*) FROM news")) {
   </head>
   <body>
     <div class="container">
+      <?php echo($counterror); ?>
       <h1 id="loading" style="display:none">Loading...</h1>
-      <div class="blog-post" id="news">
-        <h2 class="blog-post-title">Sample blog post</h2>
-        <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
-        <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-        <hr>&copy; Llann Arcanist</hr>
-      </div>
+      <div class="blog-post" id="news"></div>
       <div id="pagination"></div>
     </div>
     
